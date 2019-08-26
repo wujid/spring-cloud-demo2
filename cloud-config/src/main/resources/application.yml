@@ -8,5 +8,5 @@ spring:
       server:
         git:
           uri: https://github.com/wujid/cloud-demo-config-2.git
-          username: wujid
-          password: woss3431314
+          username:
+          password:
