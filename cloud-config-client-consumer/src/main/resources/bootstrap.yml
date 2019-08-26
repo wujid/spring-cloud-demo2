@@ -1,0 +1,9 @@
+spring:
+  application:
+    #需要从github上读取的资源名称，注意没有yml后缀名
+    name: config-client-consumer
+  cloud:
+    config:
+      uri: http://config-service.com:1001/
+      profile: dev
+      label: master

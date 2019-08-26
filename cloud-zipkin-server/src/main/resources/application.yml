@@ -1,0 +1,26 @@
+server:
+  port: 2001
+
+management:
+  metrics:
+    web:
+      server:
+        ##解决IllegalArgumentException: Prometheus requires that all meters with the same name have the same set of tag keys.
+        auto-time-requests: false
+spring:
+  main:
+    ##解决The bean 'characterEncodingFilter', defined in class path resource [zipkin/autoconfigure/ui/ZipkinUiAutoConfiguration.class], could not be registered. A bean with that name has already been defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/HttpEncodingAutoConfiguration.class] and overriding is disabled.Action:
+    allow-bean-definition-overriding: true
+  application:
+    name: cloud-zipkin-demo
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka
+  instance:
+    #自定义显示名称
+    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}
+    #是否显示真实地址
+    prefer-ip-address: true
